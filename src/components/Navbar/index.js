@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeTheme } from '../../redux/theme/action';
 import {
 	Nav,
 	NavLink,
@@ -14,18 +16,22 @@ import {
 } from './styles';
 import logoMarvel from '../../assets/marvel.svg';
 
-const theme = 'ligth';
-
 const Navbar = () => {
+	const dispatch = useDispatch();
 	const [text, setText] = useState('');
+	const { mode } = useSelector((state) => state?.theme || {});
 
 	const onSubmit = (event) => {
 		event.preventDefault();
 		/*search(text);*/
 	};
+
+	const onThemeChange = () => {
+		dispatch(changeTheme(mode === 'light' ? 'dark' : 'light'));
+	};
 	return (
 		<>
-			<Nav mode={theme}>
+			<Nav mode={mode}>
 				<NavLink to='/'>
 					<img src={logoMarvel} alt='logo' height='60%' />
 				</NavLink>
@@ -45,8 +51,7 @@ const Navbar = () => {
 					</form>
 				</NavMenu>
 				<NavBtn>
-					{/* <NavTheme onClick={changeTheme}> */}
-					<NavTheme>
+					<NavTheme onClick={onThemeChange}>
 						<i
 							className={`${true === 'light' ? 'far' : 'fas'} fa-moon fav`}></i>
 					</NavTheme>
@@ -55,7 +60,7 @@ const Navbar = () => {
 					</NavBtnLink>
 				</NavBtn>
 			</Nav>
-			<NavHidden mode={theme}>
+			<NavHidden mode={mode}>
 				<form className='search' onSubmit={onSubmit}>
 					<NavHiddenSearch>
 						<i className='fas fa-search' onClick={onSubmit} />
