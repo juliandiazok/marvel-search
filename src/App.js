@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import AppRoutes from './routes';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const theme = {
+	colorsNav: {
+		light: '#fff',
+		dark: '#212121',
+	},
+	colorsIcon: {
+		light: '##212121',
+		dark: '#fff',
+	},
+	modalBackground: {
+		light: '#fff',
+		dark: '#212121',
+	},
+	modalFontColor: {
+		light: '#212121',
+		dark: '#fff',
+	},
+	pageBackground: {
+		light: 'rgba(206, 205, 205, 0.589)',
+		dark: 'rgba(61, 61, 61, 0.8)',
+	},
+};
+
+const App = () => (
+	<ThemeProvider theme={theme}>
+		<AppRoutes />
+	</ThemeProvider>
+);
 
 export default App;
