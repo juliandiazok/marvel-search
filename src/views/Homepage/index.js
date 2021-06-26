@@ -1,9 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getAllCharacters } from '../../api/characters';
+import Card from '../../components/Card';
 
 const Homepage = () => {
+	const [characters, setCharacters] = useState([]);
 	useEffect(() => {
-		getAllCharacters().then((character) => console.log(character));
+		getAllCharacters().then((c) => setCharacters(c));
 	}, []);
 
 	/* 	const getCharacters = (c) =>
@@ -11,7 +13,13 @@ const Homepage = () => {
 		  .then((characters) => dispatch(fetchCharactersSuccess(characters)))
 			.catch(() => dispatch(fetchCharactersError())); */
 
-	return <div className=''>Hola</div>;
+	return (
+		<div className=''>
+			{characters.map((character) => (
+				<Card character={character} />
+			))}
+		</div>
+	);
 };
 
 export default Homepage;
