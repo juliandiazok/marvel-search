@@ -1,3 +1,4 @@
+import { manageFavorite } from '../../utils/localStorage';
 import { CardStyle } from './styles';
 
 const Card = ({ character = {} }) => (
@@ -19,7 +20,7 @@ const Card = ({ character = {} }) => (
 			<div className='card-img-overlay'>
 				<div
 					className='favorito'
-					/* onClick={onFavoriteClick} */
+					onClick={() => manageFavorite(character)}
 					title='Agregar a Favoritos'>
 					<i className={`${false ? 'fas' : 'far'} fa-star fav`} />
 				</div>
