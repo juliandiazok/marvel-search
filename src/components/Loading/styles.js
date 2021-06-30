@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 // styles Cards
 export const LoadingStyle = styled.header`
-	margin-top: 6vh;
+	margin-top: 0;
 	color: red;
 	-webkit-text-stroke-width: 0.5px;
 	-webkit-text-stroke-color: black;

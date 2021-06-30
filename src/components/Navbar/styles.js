@@ -8,7 +8,7 @@ export const Nav = styled.nav`
 	justify-content: space-between;
 	padding: 0.5rem calc((50vw - 1000px) / 2);
 	z-index: 10;
-	margin: 4px 4px 4px 4px;
+	margin: 1px 4px 4px 4px;
 	-webkit-box-shadow: 0px 15px 10px -15px gray, 0px -15px 10px -15px gray;
 	-moz-box-shadow: 0px 15px 10px -15px gray, 0px -15px 10px -15px gray;
 	box-shadow: 0px 15px 10px -15px gray, 0px -15px 10px -15px gray;
@@ -79,7 +79,7 @@ export const NavTheme = styled.nav`
 	cursor: pointer;
 	text-decoration: none;
 	transition: all 0.2s ease-in-out;
-	margin-right: 8px;
+	margin-right: 2px;
 	&:hover {
 		transition: all 0.2s ease-in-out;
 		border: 1px solid #bdbdbd;
@@ -96,7 +96,7 @@ export const NavBtnLink = styled(Link)`
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
 	text-decoration: none;
-	margin-right: 24px;
+	margin-right: 18px;
 	&:hover {
 		transition: all 0.2s ease-in-out;
 		background: red;
